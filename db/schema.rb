@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180530020237) do
+ActiveRecord::Schema.define(version: 20180601010536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cards", force: :cascade do |t|
+    t.integer "action", default: 1, null: false
+    t.integer "stealth", default: 1, null: false
+    t.integer "force", default: 1, null: false
+    t.integer "cunning", default: 1, null: false
+    t.integer "charisma", default: 1, null: false
+  end
+
   create_table "decks", force: :cascade do |t|
     t.bigint "game_id"
+    t.text "stack", default: [], array: true
+    t.text "decklist", default: [], array: true
     t.index ["game_id"], name: "index_decks_on_game_id"
   end
 
