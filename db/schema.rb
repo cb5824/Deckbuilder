@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180601010536) do
+ActiveRecord::Schema.define(version: 20180611021426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,12 @@ ActiveRecord::Schema.define(version: 20180601010536) do
     t.integer "score", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "push_decks", force: :cascade do |t|
+    t.bigint "game_id"
+    t.text "stack", default: ["stealth", "stealth", "stealth", "stealth", "stealth", "stealth", "stealth", "stealth", "stealth", "stealth", "force", "force", "force", "force", "force", "force", "force", "force", "force", "force", "cunning", "cunning", "cunning", "cunning", "cunning", "cunning", "cunning", "cunning", "cunning", "cunning", "charisma", "charisma", "charisma", "charisma", "charisma", "charisma", "charisma", "charisma", "charisma", "charisma"], array: true
+    t.index ["game_id"], name: "index_push_decks_on_game_id"
   end
 
 end

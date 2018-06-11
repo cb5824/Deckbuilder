@@ -14,9 +14,9 @@ feature 'Push Deck' do
   end
 
   scenario 'a push deck begins with 10 each of stealth, force, cunning, and charisma' do
-    expect(push_deck.count('stealth')).to eq(10)
-    expect(push_deck.count('force')).to eq(10)
-    expect(push_deck.count('cunning')).to eq(10)
-    expect(push_deck.count('charisma')).to eq(10)
+    expect(push_deck.stack.count('stealth')).to eq(10)
+    expect(push_deck.stack.count('force')).to eq(10)
+    expect(push_deck.stack.count('cunning')).to eq(10)
+    expect(push_deck.stack.count('charisma')).to eq(10)
   end
 end
